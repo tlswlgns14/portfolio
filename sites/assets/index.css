@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+* { margin:0; padding:0; box-sizing:border-box; font-family: 'Noto Sans KR', sans-serif;}
+li {list-style:none}
+a { text-decoration:none}
+
+/** display, position, width, height, background-color, color, font-size, line-height, font-weight, letter-spacing **/
+
+header{background-color: #333; height:100px; width: 100%; position: fixed;}
+header nav{display: block; vertical-align: middle;}
+header nav a {display: inline-block;}
+header nav div {display: inline-block;}
+header nav div p{display: inline-block; font-size: 19px;}
+
+main {}
+main .main_slide {}
+main .main_slide div {}
+main .main_slide div img {}
+main .main_box{}
+main .main_box .main_topbox {}
+main .main_box .main_topbox div{}
+main .main_box .main_topbox div img {}
+main .main_box .main_bottombox {}
+main .main_box .main_bottombox div {}
+main .main_box .main_bottombox div  img {}
+main .main_box .main_txt {}
+main .main_box .main_txt p {}
+main .main_box .main_txt div {}
+main .main_box .main_txt div a{}
+main .main_bottom {}
+main .main_bottom img{}
+
+footer {}
+footer a {}
+footer a img {}
+footer .self {}
+footer .self a{}
+footer div {}
+
+
+
+
