@@ -6,11 +6,10 @@ a { text-decoration:none}
 /** display, position, width, height, background-color, color, font-size, line-height, font-weight, letter-spacing **/
 
 header{background-color: #333; height:100px; width: 100%; position: fixed;}
-header nav{display: block; vertical-align: middle;}
-header nav a {display: inline-block;}
-header nav div {display: inline-block;}
-header nav div p{display: inline-block; font-size: 19px;}
-
+header nav{display: flex; ; vertical-align: middle; margin: auto;}
+header nav a {}
+header nav div {}
+header nav div p{font-size: 19px;}
 main {}
 main .main_slide {}
 main .main_slide div {}
@@ -28,14 +27,9 @@ main .main_box .main_txt div {}
 main .main_box .main_txt div a{}
 main .main_bottom {}
 main .main_bottom img{}
-
 footer {}
 footer a {}
 footer a img {}
 footer .self {}
 footer .self a{}
 footer div {}
-
-
-
-

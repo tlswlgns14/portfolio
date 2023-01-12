@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Navbar, Container, Nav } from 'react-bootstrap';
 import './App.css';
 import data from './data.js';
+import { Routes, Route, Link } from 'react-router-dom'
 
 function App() {
 
@@ -9,6 +10,8 @@ function App() {
 
   return (
     <div className="App">
+
+  
       
       <Navbar bg="light" variant="light">
         <Container>
@@ -20,15 +23,26 @@ function App() {
         </Container>
       </Navbar>
 
-      <div className='main-bg'></div>
+      <Link to="/">홈</Link>
+      <Link to="/detail">상세페이지</Link>
 
-      <div className='container'>
-        <div className='row'>
-        <Card shoes ={shoes[0]}></Card>
-        <Card shoes ={shoes[1]}></Card>
-        <Card shoes ={shoes[2]}></Card>
-        </div>
-      </div>
+      <Routes>
+        <Route path="/" element={
+            <>
+              <div className='main-bg'></div>
+              <div className='container'>
+                <div className='row'>
+                { shoes.map((a, i)=>{
+                  return <Card shoes={shoes[i]}></Card>
+                })}
+                </div>
+              </div>
+              </>
+              }/>
+        <Route path="/detail" element={<div>상세페이지임</div>} />
+      </Routes>
+
+
     </div>
   );
 }
