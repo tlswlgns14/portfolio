@@ -2,50 +2,68 @@ import { useState } from 'react';
 import { Navbar, Container, Nav } from 'react-bootstrap';
 import './App.css';
 import data from './data.js';
-import { Routes, Route, Link } from 'react-router-dom'
+import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom'
+import Detail from './routes/Detail.js';
 
 function App() {
 
   let [shoes] = useState(data)
+  let navigate = useNavigate();
 
   return (
-    <div className="App">
+  <div className="App">
 
   
       
-      <Navbar bg="light" variant="light">
-        <Container>
-        <Navbar.Brand href="#home">ShoeShop</Navbar.Brand>
-        <Nav className="me-auto">
-          <Nav.Link href="#home">Home</Nav.Link>
-          <Nav.Link href="#features">Cart</Nav.Link>
-        </Nav>
-        </Container>
-      </Navbar>
+    <Navbar bg="light" variant="light">
+      <Container>
+      <Navbar.Brand href="#home">ShoeShop</Navbar.Brand>
+      <Nav className="me-auto">
+        <Nav.Link onClick={()=>{ navigate('/') }}>Home</Nav.Link>
+        <Nav.Link onClick={()=>{ navigate('/detail') }}>Cart</Nav.Link>
+      </Nav>
+      </Container>
+    </Navbar>
 
-      <Link to="/">홈</Link>
-      <Link to="/detail">상세페이지</Link>
+  
 
-      <Routes>
-        <Route path="/" element={
-            <>
-              <div className='main-bg'></div>
-              <div className='container'>
-                <div className='row'>
-                { shoes.map((a, i)=>{
-                  return <Card shoes={shoes[i]}></Card>
-                })}
-                </div>
+    <Routes>
+      <Route path="/" element={
+          <>
+            <div className='main-bg'></div>
+            <div className='container'>
+              <div className='row'>
+              { shoes.map((a, i)=>{
+                return <Card shoes={shoes[i]}></Card>
+              })}
               </div>
-              </>
-              }/>
-        <Route path="/detail" element={<div>상세페이지임</div>} />
-      </Routes>
+            </div>
+            </>
+            }/>
+      <Route path="/detail" element={<Detail shoes={shoes} />} />
+
+      <Route path="/about" element={<About/>}>  
+        <Route path="member" element={<div>멤버임</div>} />
+        <Route path="location" element={<div>위치정보임</div>} />
+      </Route>      
 
 
-    </div>
-  );
+    </Routes>
+
+
+  </div>
+ );
 }
+function About(){
+  return(
+    <div>
+      <h4>회사정보임</h4>
+      <Outlet></Outlet>
+    </div>
+  )
+}
+
+
 
 function Card(props){
   return (
